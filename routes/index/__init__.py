@@ -1,0 +1,1 @@
+from routes.index.index import index_page

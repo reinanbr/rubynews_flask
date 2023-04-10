@@ -1,0 +1,1 @@
+from routes.news.news import news_page

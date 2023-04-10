@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "rubynews-flask"
+version = "1.0.1"
+description = "a site from news"
+authors = ["reinanbr <perseu912@gmail.com>"]
+license = "bsd-3"
+readme = "README.md"
+packages = [{include = "rubynews_flask"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
