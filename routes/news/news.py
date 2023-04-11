@@ -3,7 +3,7 @@ from flask import jsonify
 from json import dump
 from werkzeug.utils import secure_filename
 
-
+from .tools import upload_imgurl,save_news
 
 from urllib.parse import quote
 from random import choice
@@ -50,11 +50,26 @@ def save_news():
 
         file = request.files['file']
         if file and allowed_file(file.filename):
-            namefiext = tuple(file.filename.split('.'))
+            namefile,ext = tuple(file.filename.split('.'))
             url_filename =  f'{quote(title)}.{ext}'
             filename = secure_filename(url_filename)
             print(UPLOAD_FOLDER,filename)
-            file.save(os.path.join(UPLOAD_FOLDER, filename))
+            path_file = os.path.join(UPLOAD_FOLDER, filename)
+            file.save(path_file)
+            
+            upload_thumbnail = upload_imgurl(path_file,title)
+            os.remove(path_file)
+            
+            news_db_ = {'title':title,
+                       'news':news,
+                       'date':{'date':date,'hour':hour},
+                       'title_url':quote(title),
+                       'thumbnail':{'link':upload_thumbnail.link,
+                                    'title':upload_thumbnail.title}}
+            print(news_db_)
+            save_news(news_db_)
+  
+            
 
 
     
