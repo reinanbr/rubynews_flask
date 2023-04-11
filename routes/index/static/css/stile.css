@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto+Slab&display=swap');
 
 
+*{
+    font-size:11px;
+}
+
 p{
     font-family: 'Roboto Slab';
+}
+
+.inputNews{
+    padding-bottom: 200px;
+    background-color:#aeb4b3
+}
+
+.painelAddNews{
+    background-color: #2f3c3a;
 }

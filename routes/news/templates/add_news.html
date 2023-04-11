@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block title %} adicionando nova notícia... {% endblock %}
+{% block content %}
+
+<div class="painelAddNews">
+    <br/>
+    <form enctype='multipart/form-data' action="/news/save_news" method="post">
+            <div class="input-group input-group-sm mb-3" style="width: 30rem;text-align:center">
+            <span class="input-group-text" id="inputGroup-sizing-sm" required><small>Título da Notícia: </small></span>
+            <input type="text" name='title'  class="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm">
+        </div>
+
+
+        <div class="input-group mb-3" style="width: 30rem;text-align:center">
+            <input type="file" name="file" class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" name='thumbnail' for="inputGroupFile02">Imagem Thumbnail</label>
+        </div>
+        
+
+        <div class="input-group">
+            <span class="input-group-text" style="background-color:#5d6966" ><small>Notícia</small></span>
+            <textarea name="news" class="form-control inputNews"  style="font-size:11px"  aria-label="With textarea"></textarea>
+        </div> 
+    <br/>
+        <button type="submit" class="btn btn-primary mb-3" style="background-color:#5C0B14;border:0">Salvar Notícia</button>
+        <br/>
+    </form>
+
+{% endblock %}
