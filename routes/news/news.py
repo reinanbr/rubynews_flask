@@ -3,7 +3,7 @@ from flask import jsonify
 from json import dump
 from werkzeug.utils import secure_filename
 
-from .tools import upload_imgurl,save_news
+from .tools import upload_imgurl,save_news_
 
 from urllib.parse import quote
 from random import choice
@@ -42,7 +42,7 @@ def save_news():
         title = (request.form.get('title'))
         
         date = dt.datetime.now().strftime('%d/%m/%Y')
-        hour = dt.datetime.now().strftime('%h:%M')
+        hour = dt.datetime.now().strftime('%H:%M:%s')
         
         if 'file' not in request.files:
             print('No file part')
@@ -62,12 +62,12 @@ def save_news():
             
             news_db_ = {'title':title,
                        'news':news,
-                       'date':{'date':date,'hour':hour},
+                       'date':{'date':date,'hour':hour,'time':time.time()},
                        'title_url':quote(title),
                        'thumbnail':{'link':upload_thumbnail.link,
                                     'title':upload_thumbnail.title}}
             print(news_db_)
-            save_news(news_db_)
+            save_news_(news_db_)
   
             
 
