@@ -1,9 +1,9 @@
-from flask import Blueprint,render_template,current_app,request,session,jsonify, redirect,url_for,flash, send_from_directory
+from flask import Blueprint,render_template,redirect,current_app,request,session,jsonify, redirect,url_for,flash, send_from_directory
 from flask import jsonify
 from json import dump
 from werkzeug.utils import secure_filename
 
-from .tools import upload_imgurl,save_news_
+from .tools import upload_imgurl,save_news_,read_news
 
 from urllib.parse import quote
 from random import choice
@@ -40,9 +40,12 @@ def save_news():
     if request.method=='POST':
         news = (request.form.get('news'))
         title = (request.form.get('title'))
+        resume_ = request.form.get('resume')
+        font_ = request.form.get('font')
+        time_js = request.form.get('time_js')
         
         date = dt.datetime.now().strftime('%d/%m/%Y')
-        hour = dt.datetime.now().strftime('%H:%M:%s')
+        hour = dt.datetime.now().strftime('%H:%M:%S')
         
         if 'file' not in request.files:
             print('No file part')
@@ -62,21 +65,21 @@ def save_news():
             
             news_db_ = {'title':title,
                        'news':news,
+                       'resume':resume_,
+                       'font':font_,
+                       'time_js':int(time_js),
                        'date':{'date':date,'hour':hour,'time':time.time()},
                        'title_url':quote(title),
                        'thumbnail':{'link':upload_thumbnail.link,
                                     'title':upload_thumbnail.title}}
             print(news_db_)
             save_news_(news_db_)
-  
-            
 
+    return redirect(url_for('news.read_new',title_url=quote(title)))
 
-    
-    
-    
-    return jsonify({"sucess":"ok"})
-
+@news_page.route('/read_news/<title_url>')
+def read_new(title_url):
+    return jsonify(read_news(title_url))
 
 @news_page.route('/')
 def index():

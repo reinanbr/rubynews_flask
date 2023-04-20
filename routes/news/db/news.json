@@ -1,18 +1,38 @@
 {
-    "news": [
-        {
-            "title": "o mouse N presta",
-            "news": "fgffhh",
+    "news": {
+        "oiii": {
+            "title": "oiii",
+            "news": "legal",
+            "resume": "hmm",
+            "font": null,
+            "time_js": "1682030489913",
             "date": {
-                "date": "10/04/2023",
-                "hour": "23:17:1681179444",
-                "time": 1681179446.5000336
+                "date": "20/04/2023",
+                "hour": "19:41:30",
+                "time": 1682030491.923555
             },
-            "title_url": "o%20mouse%20N%20presta",
+            "title_url": "oiii",
             "thumbnail": {
-                "link": "https://i.imgur.com/hqn6nuB.png",
-                "title": "o mouse N presta"
+                "link": "https://i.imgur.com/VRP8tK4.png",
+                "title": "oiii"
+            }
+        },
+        "outro%20twst": {
+            "title": "outro twst",
+            "news": "s\u00f3 um teste",
+            "resume": "testando rssumo",
+            "font": null,
+            "time_js": "1682031039408",
+            "date": {
+                "date": "20/04/2023",
+                "hour": "19:50:39",
+                "time": 1682031042.8234537
+            },
+            "title_url": "outro%20twst",
+            "thumbnail": {
+                "link": "https://i.imgur.com/zToq0Iq.png",
+                "title": "outro twst"
             }
         }
-    ]
+    }
 }
