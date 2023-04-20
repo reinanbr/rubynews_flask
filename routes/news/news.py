@@ -41,7 +41,7 @@ def save_news():
         news = (request.form.get('news'))
         title = (request.form.get('title'))
         resume_ = request.form.get('resume')
-        font_ = request.form.get('font')
+        font_ = request.form.get('fonte')
         time_js = request.form.get('time_js')
         
         date = dt.datetime.now().strftime('%d/%m/%Y')
