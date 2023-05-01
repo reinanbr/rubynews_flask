@@ -43,6 +43,7 @@ def save_news():
         resume_ = request.form.get('resume')
         font_ = request.form.get('fonte')
         time_js = request.form.get('time_js')
+        categoria = request.form.get('categoria')
         
         date = dt.datetime.now().strftime('%d/%m/%Y')
         hour = dt.datetime.now().strftime('%H:%M:%S')
@@ -67,6 +68,7 @@ def save_news():
                        'news':news,
                        'resume':resume_,
                        'font':font_,
+                       'categoria':categoria,
                        'time_js':int(time_js),
                        'date':{'date':date,'hour':hour,'time':time.time()},
                        'title_url':quote(title),
